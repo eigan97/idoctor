@@ -1,0 +1,16 @@
+<div class="sidebar sidebar--dark" fxLayout="column">
+    <div class="sidebar__search" fxLayout="row" fxLayoutAlign="center center">
+        <div class="sidebar__search__input" fxLayout="row" fxLayoutAlign="start center">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar">
+        </div>
+    </div>
+    <div class="sidebar__menu">
+        <ul class="sidebar__menu__list" fxLayout="column" fxLayoutAlign="center">
+            <a *ngIf="currentUser.consulta[0].nombre_rol === 'Administrador' || currentUser.consulta[0].nombre_rol === 'Doctor' || currentUser.consulta[0].nombre_rol === 'Enfermero'" routerLink="/pacientes" routerLinkActive="sidebar__menu__list__item--active" class="sidebar__menu__list__item" fxLayout="column" fxLayoutAlign="center start" (click)="menuSelect('/pacientes')" href=""><li><i class="fas fa-hospital-user"></i> Mis pacientes</li></a>
+            <a *ngIf="currentUser.consulta[0].nombre_rol === 'Doctor'" routerLink="/consultas" routerLinkActive="sidebar__menu__list__item--active" class="sidebar__menu__list__item" fxLayout="column" fxLayoutAlign="center start" (click)="menuSelect('/consultas')" href=""><li><i class="fas fa-stethoscope"></i> Mis consultas</li></a>
+            <a *ngIf="currentUser.consulta[0].nombre_rol === 'Doctor' || currentUser.consulta[0].nombre_rol === 'Laboratorista' || currentUser.consulta[0].nombre_rol === 'Enfermero'"  routerLink="/examenes"  routerLinkActive="sidebar__menu__list__item--active" class="sidebar__menu__list__item" fxLayout="column" fxLayoutAlign="center start" (click)="menuSelect('/examenes')" href=""><li><i class="fas fa-notes-medical"></i> Exámenes Médicos</li></a>
+            <a *ngIf="currentUser.consulta[0].nombre_rol === 'Administrador'" routerLink="/personal"  routerLinkActive="sidebar__menu__list__item--active" class="sidebar__menu__list__item" fxLayout="column" fxLayoutAlign="center start" (click)="menuSelect('/personal')" href=""><li><i class="fas fa-user-md"></i> Personal</li></a>
+        </ul>
+    </div>
+</div>

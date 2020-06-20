@@ -1,0 +1,16 @@
+<div class="request-box box-deployed" fxLayout="column">
+    <div class="paciente-box__title">
+        <span>EXAMENES SOLICITADOS</span>
+    </div>
+    <a *ngIf="currentUser.consulta[0].nombre_rol !== 'Administrador' && currentUser.consulta[0].nombre_rol !== 'Enfermero'" routerLink="/examenes/new" class="button button--req button--large button--pink" fxLayout="row" fxLayoutAlign="center center"><i class="fas fa-plus-circle"></i> SOLICITAR NUEVO EXAMEN</a>
+    
+    <a *ngFor="let examenes of examenesPerfil" routerLink="/examenes/{{examenes.id_examen}}" class="examen-box__information" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{examenes.fecha_examen}} | FOLIO: {{examenes.id_examen}}| {{examenes.nombre_examen}} <span class="examen-box__information__nombre">({{examenes.nombre_p}} {{examenes.apellidos_p}})</span></span>
+        <div class="examen-box__information__status status--entregado" *ngIf="examenes.status">
+            <span>ENTREGADO</span>
+        </div>
+        <div class="examen-box__information__status status--pendiente" *ngIf="!examenes.status">
+            <span>PENDIENTE</span>
+        </div>
+    </a>    
+</div>

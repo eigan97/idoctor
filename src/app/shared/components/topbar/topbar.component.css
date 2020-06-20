@@ -1,0 +1,60 @@
+.topbar{
+    width: 100%;
+    height: 50px;
+    z-index: 15 !important;
+    position: relative;
+}
+.topbar--blue{
+    background-color: var(--blue-primary);
+}
+.topbar__logo{
+    width: 20%;
+}
+.topbar__logo--case-white{
+    color: var(--white-font);
+}
+.topbar__profile{
+    width: 8%;
+    background-color: var(--blue-third);
+}
+.topbar__profile__notifications{
+    width: 25%;
+    color: var(--white-font);
+}
+.topbar__profile__user{
+    width: 75%;
+    color: var(--blue-font);
+    background-color: var(--blue-secondary);
+}
+.topbar__profile__user img{
+    width: 40%;
+    margin-right: 15px;
+}
+.topbar__profile__user i{
+    cursor: pointer;
+    transition: ease-out .2s;
+}
+.topbar__user-options{
+    width: 15%;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: var(--dark-primary);
+    color: var(--white-font);
+}
+.topbar__user-options__list{
+    list-style: none;
+    padding: 5px 0px 5px 0px;
+
+}
+.topbar__user-options__list__item{
+    width: 100%;
+    height: 30px;
+    padding: 5px 25px 5px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.topbar__user-options__list__item:hover{
+    background-color: var(--dark-third);
+    color: var(--white-font);
+}

@@ -1,0 +1,19 @@
+<div class="full__container" fxLayout="column">
+    <app-topbar [currentUser]="currentUser"></app-topbar>
+    <div class="full__container__main" fxLayout="row">
+        <app-sidebar (titleOutput)="urlInit($event)" [currentUser]="currentUser"></app-sidebar>
+        <div id="full__container__main__content" class="full__container__main__content" fxLayout="column">
+            <div class="full__container__main__content__title" fxLayout="row" fxLayoutAlign="space-between center">
+                <span class="content__title__fulltext"><i class="fas fa-briefcase-medical"></i> {{mainTitle}}</span>
+                <div class="content__title__option" fxLayout="row" fxLayoutAlign="space-around center">
+                    <span>Vista:</span>
+                    <a class="content__title__option__item" href=""><i class="fas fa-th-list"></i></a>
+                    <a class="content__title__option__item content__title__option__item--active" href=""><i class="fas fa-th"></i></a>
+                </div>
+            </div>
+            <div class="full__container__main__content__box">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

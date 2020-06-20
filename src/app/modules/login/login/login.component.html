@@ -1,0 +1,14 @@
+<div class="home__container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="box__login" fxLayout="column" fxLayoutAlign="space-between">
+        <div class="box__login__information">
+            <span class="box__login__information__logo">iDOCTOR</span>
+            <p class="box__login__information__text">Para utilizar el sistema utiliza tus datos de usuario para iniciar sesion, si tienes <br> problemas contacta a soporte</p>
+        </div>
+        <div class="box__login__form" fxLayout="column" fxLayoutAlign="center center">
+            <input type="email" class="input input--large input--init" placeholder="email@dominio.com" id="usuario" [(ngModel)]="email">
+            <input type="password" class="input input--large input--init" id="password" placeholder="Password" [(ngModel)]="password">
+            <button type="submit" class="button button--mid button--pink"  (click)="logIn()">Iniciar Sesión</button>
+        </div>
+        <span class="box__login__info">Diplomado Desarrollo Web 2019</span>
+    </div>
+</div>

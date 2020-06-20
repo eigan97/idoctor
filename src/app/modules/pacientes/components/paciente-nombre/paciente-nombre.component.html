@@ -1,0 +1,81 @@
+<div class="paciente-box box-deployed">
+    <div class="paciente-box__title" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>DATOS GENERALES DEL PACIENTE</span>
+        <div class="paciente-box__buttons-group" fxLayout="row" fxLayoutAlign="space-between end">
+            <button class="examen-box__information__status examen-box__information__status--large status--borrar" (click)="transferirPaciente()">
+                <span>Transferir</span>
+            </button>
+            <button *ngIf="currentPaciente.nombre_tipo === 'Transitorio'" class="examen-box__information__status examen-box__information__status--large status--stable" (click)="internarPaciente(currentPaciente)">
+                <span>Internar</span>
+            </button>
+        </div>
+    </div>
+    <div class="paciente-box__information" fxLayout="row">  
+      <img [src]="currentPaciente.foto_paciente" alt="">
+        <div class="paciente-box__information__text" fxLayout="row" fxLayoutAlign="space-between center">
+            
+            <div class="information__text_group_one" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">NOMBRE</span>
+                    <span class="information__text_group__data">{{currentPaciente.nombre_p}} {{currentPaciente.apellidos_p}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">EDAD</span>
+                    <span class="information__text_group__data">{{aniosPaciente}} AÑOS</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_two" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">TELEFONO</span>
+                    <span class="information__text_group__data">{{currentPaciente.telefono}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">DOMICILIO</span>
+                    <span class="information__text_group__data">{{currentPaciente.direccion}}</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_three">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">TIPO DE SANGRE</span>
+                    <span class="information__text_group__data">{{currentPaciente.grupo_sanguineo}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">ALERGIAS</span>
+                    <span class="information__text_group__data">{{alergiasPaciente}}</span>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<div class="historial-box box-deployed">
+    <div class="historial-box__title">
+        <h4>HISTORIAL CLINICO</h4>
+    </div>
+    <div *ngIf="currentUser.consulta[0].nombre_rol === 'Administrador' || currentUser.consulta[0].nombre_rol === 'Doctor'" class="historial-box__create" fxLayout="row" fxLayoutAlign="center center">
+        <textarea class="historial-box__create__input input" id="diagTextarea" placeholder="Agrega un comentario al historial clinico del paciente" [(ngModel)]="diagnostico"></textarea>
+        <button class="historial-box__create__button" (click)="crearDiagnostico()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div *ngFor="let diag of diagPacientes" class="historial-box__information">
+        <span>{{diag.fecha_diagnostico}} | {{diag.descripcion_diagnostico}}</span>
+    </div>
+</div>
+
+<div class="examen-box box-deployed">
+    <div class="examen-box__title">
+        <h4>EXAMENES MÉDICOS</h4>
+    </div>
+    <a *ngFor="let examenes of examenesPaciente" routerLink="/examenes/{{examenes.id_examen}}" class="examen-box__information" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{examenes.fecha_examen}} | FOLIO: {{examenes.id_examen}}| {{examenes.nombre_examen}} <span class="examen-box__information__nombre">({{examenes.nombre_p}} {{examenes.apellidos_p}})</span></span>
+        <div class="examen-box__information__status status--entregado" *ngIf="examenes.status">
+            <span>ENTREGADO</span>
+        </div>
+        <div class="examen-box__information__status status--pendiente" *ngIf="!examenes.status">
+            <span>PENDIENTE</span>
+        </div>
+    </a>
+</div>
+ 

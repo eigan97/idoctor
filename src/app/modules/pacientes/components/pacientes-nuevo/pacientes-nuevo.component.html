@@ -1,0 +1,142 @@
+<div class="fomr-box box-deployed">
+    <div class="form-box__title">
+        <span>DATOS DE PACIENTE</span>
+    </div>
+    <div class="form-box__group">
+        <div class="form-box__group__all" fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Nombre del Paciente</label>
+                <input type="text" [(ngModel)]="nombreP" class="input" placeholder="Escribe el nombre del paciente">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Apellidos del Paciente</label>
+                <input type="text" [(ngModel)]="apellidosP" class="input" placeholder="Escribe el apellidos del paciente">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Sexo</label>
+                <select type="text" class="input" [(ngModel)]="sexo">
+                    <option disabled selected>Selecciona el sexo</option>
+                    <option [ngValue]="'Masculino'">Masculino</option>
+                    <option [ngValue]="'Femenino'">Femenino</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Fecha de nacimiento</label>
+                <input type="date" class="input"  [(ngModel)]="fechaNacimientoP" placeholder="Selecciona la fecha de nacimiento">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Lugar de nacimiento</label>
+                <select name="estado" class="input" [(ngModel)]="lugarNacimiento">
+                    <option disabled selected>Seleccione uno...</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Baja California">Baja California</option>
+                    <option value="Baja California Sur">Baja California Sur</option>
+                    <option value="Campeche">Campeche</option>
+                    <option value="Chiapas">Chiapas</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="Coahuila">Coahuila</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Distrito Federal">Distrito Federal</option>
+                    <option value="Durango">Durango</option>
+                    <option value="Estado de México">Estado de México</option>
+                    <option value="Guanajuato">Guanajuato</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Michoacán">Michoacán</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Nayarit">Nayarit</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                    <option value="Oaxaca">Oaxaca</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Querétaro">Querétaro</option>
+                    <option value="Quintana Roo">Quintana Roo</option>
+                    <option value="San Luis Potosí">San Luis Potosí</option>
+                    <option value="Sinaloa">Sinaloa</option>
+                    <option value="Sonora">Sonora</option>
+                    <option value="Tabasco">Tabasco</option>
+                    <option value="Tamaulipas">Tamaulipas</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Yucatán">Yucatán</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Tipo Paciente</label>
+                <select type="text" class="input" [(ngModel)]="idTipo" (change)="tipoPacientes(idTipo)">
+                    <option disabled selected>Selecciona tipo de paciente</option>
+                    <option [ngValue]="'1'">Transitorio</option>
+                    <option [ngValue]="'2'">Internado</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Curp</label>
+                <input type="text" class="input"  [(ngModel)]="curp" placeholder="Escribe tu CURP">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Direccion</label>
+                <input type="text" class="input"  [(ngModel)]="direccion" placeholder="Escribe la direccion del paciente">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Grupo Sanguineo</label>
+                <select type="text" class="input" [(ngModel)]="grupoSanguineo">
+                    <option disabled selected>Selecciona el grupo sanguineo</option>
+                    <option [ngValue]="'AB+'">AB+</option>
+                    <option [ngValue]="'AB-'">AB-</option>
+                    <option [ngValue]="'A+'">A+</option>
+                    <option [ngValue]="'A-'">A-</option>
+                    <option [ngValue]="'B+'">B+</option>
+                    <option [ngValue]="'B-'">B-</option>
+                    <option [ngValue]="'O+'">O+</option>
+                    <option [ngValue]="'O-'">O-</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Selecciona al medico </label>
+                <select type="text" class="input" [(ngModel)]="idPerfilMedico">
+                    <option disabled selected>Asignar perfil</option>
+                    <option *ngFor="let personal of personalesMedico" [ngValue]="personal.id_perfil">{{personal.nombre}} {{personal.apellidos}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Selecciona al enfermero </label>
+                <select type="text" class="input" [(ngModel)]="idPerfilEnfermero">
+                    <option disabled selected>Asignar perfil</option>
+                    <option *ngFor="let personal of personalesEnfermero" [ngValue]="personal.id_perfil">{{personal.nombre}} {{personal.apellidos}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Telefono de contacto</label>
+                <input type="tel" class="input"  [(ngModel)]="telefono" placeholder="XXX-XXX-XXXX">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Telefono de referencia</label>
+                <input type="tel" class="input" [(ngModel)]="telefonoReferencia" placeholder="XXX-XXX-XXXX">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Selecciona alergia del paciente </label>
+                <select type="text" class="input" [(ngModel)]="idAlergia">
+                    <option disabled selected>Asignar habitacion</option>
+                    <option [ngValue]="0">Sin Alergia</option>
+                    <option *ngFor="let alergia of alergias" [ngValue]="alergia.id_alergia">{{alergia.nombre_alergia}}</option>
+                </select>
+            </div>
+            <div *ngIf="isHabitacion" class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Selecciona la habitacion del paciente </label>
+                <select type="text" class="input" [(ngModel)]="idHabitacion">
+                    <option disabled selected>Asignar habitacion</option>
+                    <option *ngFor="let habitacion of habitaciones" [ngValue]="habitacion.id_habitaciones">{{habitacion.numero_habitacion}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column" fxLayoutAlign="center center">
+                <img class="image-paciente" *ngIf="imageProfile" [src]="imageProfile" height="90" width="90">
+                <label class="label-image" for="image-paciente-input"><i class="fas fa-upload"></i> {{textInputFile}}</label>
+                <input  hidden id="image-paciente-input" type="file" accept="image/*" (change)="pacienteImage($event)">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="row" fxLayoutAlign="end end">
+                <button class="button button--small button--pink" (click)="addPaciente()">AGREGAR PACIENTE</button>
+            </div>
+        </div>
+    </div>
+</div>

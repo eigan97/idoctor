@@ -1,0 +1,46 @@
+.card--mid{
+    width: 100%;
+}
+.card__user{
+    text-transform: uppercase;
+    margin-top: -15px;
+}
+.card__information{
+    width: 100%;
+}
+.card__user__photo{
+    width: 40%;
+    border-radius: 50vh;
+    height: 65px;
+
+}
+.card__information__add{
+    width: 100%;
+}
+.card__information__name__firstname{
+    font-size: .8em;
+}
+.card__information__name__lastname{
+    font-size: .7em;
+}
+.card__information__diagnostico{
+    color: var(--blue-secondary);
+    font-size: .55em;
+}
+.card__option{
+    font-size: .8em;
+    color: var(--gray-font);
+    cursor: pointer;
+    z-index: 10;
+}
+.card__information__diagnostico{
+    margin-bottom: 20px;
+}
+.card__information_add_rooms{
+    font-size: .68em;
+}
+.card__information__add .button{
+    text-transform: uppercase;
+    font-size: .7em;
+    text-align: center;
+}

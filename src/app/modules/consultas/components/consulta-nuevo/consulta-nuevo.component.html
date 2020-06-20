@@ -1,0 +1,31 @@
+<div class="form-box box-deployed">
+    <div class="form-box__title">
+        <span>DATOS DE CONSULTA</span>
+    </div>
+    <div class="form-box__group">
+        <div class="form-box__group__all" fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Nombre del Paciente</label>
+                <input type="text"   list="namePacientes" class="input" [(ngModel)]="nombrePaciente" placeholder="Comienza a escribir para autocompletar">
+                <datalist type="text" id="namePacientes" class="input--datalist">
+                    <option *ngFor="let paciente of pacientes">{{paciente.nombre_p}} {{paciente.apellidos_p}}</option>
+                </datalist>
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Fecha y hora de la consulta</label>
+                <input type="date" class="input" placeholder="Selecciona la fecha y hora" [(ngModel)]="fechaCita">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Estudios solicitados</label>
+                <select type="text" class="input" [(ngModel)]="estudio">
+                    <option value="Selecciona el examen" disabled selected>Selecciona el examen</option>
+                    <option value="Selecciona el examen" value="0">Sin examen</option>
+                    <option *ngFor="let tipoExamen of tipoExamenes" [ngValue]="tipoExamen.id_tipo_examen">{{tipoExamen.nombre_examen}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="row" fxLayoutAlign="end end">
+                <button class="button button--small button--pink" (click)="newCita()">AGENDAR CONSULTA</button>
+            </div>
+        </div>
+    </div>
+</div>

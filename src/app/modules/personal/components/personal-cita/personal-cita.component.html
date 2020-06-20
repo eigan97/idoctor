@@ -1,0 +1,19 @@
+<div class="fomr-box box-deployed">
+    <div class="form-box__title">
+        <span>DATOS DE CONSULTORIO</span>
+    </div>
+    <div class="form-box__group">
+        <div class="form-box__group__all" fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Selecciona consultorio</label>
+                <select type="text" class="input" [(ngModel)]="idConsultorio">
+                    <option disabled selected>Asignar consultorio</option>
+                    <option *ngFor="let consultorio of consultorios" [ngValue]="consultorio.id_consultorio">{{consultorio.numero_consultorio}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="row" fxLayoutAlign="end end">
+                <button class="button button--small button--pink" (click)="addConsultorio()">ASIGNAR CONSULTORIO</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div id="historial-box" class="historial-box box-deployed" fxLayout="column" #historialBox>
+    <div class="historial-box__title">
+        <h4>RESULTADOS</h4>
+    </div>
+    <div *ngIf="currentUser.nombre_rol !== 'Doctor' && examenPaciente.descripcion_examen === null" class="historial-box__create" fxLayout="row" fxLayoutAlign="center center">
+        <textarea class="historial-box__create__input input" id="diagTextarea" placeholder="Agrega un comentario a los resultados del examen" [(ngModel)]="resultado"></textarea>
+        <button class="historial-box__create__button" (click)="crearResultado()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div *ngIf="examenPaciente.descripcion_examen !== null" class="historial-box__information" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{examenPaciente.descripcion_examen}}</span>
+        <button class="examen-box__information__status examen-box__information__status--large status--stable" (click)="downloadAsPDF()">Descargar</button>
+    </div>
+</div>
+<div id="paciente-box" class="paciente-box box-deployed" #pacienteBox>
+    <div class="paciente-box__title">
+        <span>DATOS GENERALES DEL PACIENTE</span>
+    </div>
+    <div class="paciente-box__information" fxLayout="row">  
+        <img [src]="examenPaciente.foto_paciente" alt="">
+        <div class="paciente-box__information__text" fxLayout="row" fxLayoutAlign="space-between center">
+            
+            <div class="information__text_group_one" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">NOMBRE</span>
+                    <span class="information__text_group__data">{{examenPaciente.nombre_p}} {{examenPaciente.apellidos_p}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">EDAD</span>
+                    <span class="information__text_group__data">{{aniosPaciente}} AÑOS</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_two" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">TELEFONO</span>
+                    <span class="information__text_group__data">{{examenPaciente.telefono}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">DOMICILIO</span>
+                    <span class="information__text_group__data">{{examenPaciente.direccion}}</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_three">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">TIPO DE SANGRE</span>
+                    <span class="information__text_group__data">{{examenPaciente.grupo_sanguineo}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">ALERGIAS</span>
+                    <span class="information__text_group__data">NINGUNA</span>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+

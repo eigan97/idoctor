@@ -1,0 +1,290 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --blue-primary:rgba(53, 152, 219, .7);
+    --blue-secondary: rgba(37, 109, 159, 1);
+    --blue-third: rgba(45, 134, 193, 1);
+    --dark-primary: rgba(36, 52, 67, 1);
+    --dark-secondary: rgba(45, 62, 80, 1);
+    --dark-third: rgba(129, 185, 245, 0.5);
+    --dark-input: rgba(61, 75, 88, 1);
+    --dark-secondary-opacity: rgba(36, 52, 67, .9);
+    --gray-background: rgba(227, 231, 232, 1);
+    --blue-font: rgba(140, 178, 202,1);
+    --pink-primary: rgba(205, 80, 112, 1);
+    --white-font: rgba(255, 255, 255, .7);
+    --gray-font: rgba(103, 115, 127,1);
+    --gray-disabled: rgba(210, 214, 215,1);
+    --entregado: rgba(68, 185, 140,1);
+    --pendiente: rgba(242, 176, 98,1);
+    --red: rgb(205, 80, 80);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html, body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}
+body{
+    background-color: var(--gray-background);
+}
+textarea {
+    resize: none;
+}
+/*
+*
+* Buttons 
+*
+*/
+.button{
+    border: none;
+    border-radius: 2px;
+    margin:5px 0px 5px 0px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.button--small{   
+    padding: 5px 2px 5px 2px;
+    width: 25%;
+}
+.button--mid{   
+    padding: 5px 2px 5px 2px;
+    width: 70%;
+}
+.button--large{   
+    padding: 5px 2px 5px 2px;
+    width: 100%;
+}
+.button--pink{
+    background-color: var(--pink-primary);
+    color: rgba(255, 255, 255, 1);
+}
+.button--disabled{
+    background-color: var(--gray-disabled);
+    color: rgba(255, 255, 255, 1);
+    pointer-events: none;
+}
+/*
+*
+* Inputs
+*
+*/
+.input{
+    border: none;
+    border-radius: 2px;
+    padding: 8px 10px 8px 10px;
+    margin-bottom: 15px;
+    outline: none;
+}
+.input--large{
+    width: 90%;
+}
+/*
+*
+* Content alignment
+*
+*/
+.content{
+    margin-right: -20px;
+}
+app-card-item{
+    width: 18%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+/*
+*Card
+*
+*/
+.card{
+    background-color: var(--gray-background);
+    max-height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.card--add{
+    width: 18%;
+    max-height: 200px;
+    min-height: 200px;
+    text-align: center;
+    background-color: var(--white-font);
+    color: rgba(103, 115, 127,.6);
+    cursor: pointer;
+    text-decoration: none;
+}
+.card--add i{
+    font-size: 2.5em;
+}
+.card--add__text{
+    width: 150px;
+}
+/*
+*
+* Individual paciente
+*
+*/
+.box-deployed ~ .box-deployed{
+    margin-top: 10px;
+}
+.box-deployed{
+    background-color: var(--gray-background);
+    padding: 8px 12px 12px 12px;
+    color: var(--gray-font);
+    border-radius: 2px;
+}
+.paciente-box__title, .historial-box__title, .examen-box__title{
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.paciente-box__information{
+    width: 100%;
+}
+.paciente-box__information__text{
+    width: 60%;
+}
+.paciente-box__information img{
+    width:8%;
+    margin-right: 15px;
+    border-radius: 50vh;
+    height: 80px;
+    border: 3px solid var(--pink-primary);
+}
+.information__text_group__title, .information__text_group__data{
+    font-size: .8em;
+}
+.information__text_group__data{
+    font-weight: bold;
+}
+.information__text_group{
+    margin-bottom: 5px;
+}
+.historial-box__information, .examen-box__information{
+    background-color: var(--white-font);
+    font-size: .9em;
+    margin-bottom: 10px;
+    padding:8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.examen-box__information__status{
+    width: 10%;
+    padding: 5px 0px 5px 0px;
+    box-sizing: border-box;
+    text-align: center;
+    color: var(--white-font);
+    font-size: .9em;
+    text-transform: uppercase;
+    border: none;
+}
+.examen-box__information{
+    cursor: pointer;
+}
+
+.status--entregado{
+    background-color: var(--entregado);
+}
+.status--pendiente{
+    background-color: var(--pendiente);
+}
+.status--borrar{
+    background-color: var(--red);
+    cursor: pointer;
+    outline: none;
+}
+
+.status--stable{
+    background-color: var(--blue-primary);
+    cursor: pointer;
+    outline: none;
+}
+/*
+*
+*Form Style
+*
+*/
+.entity--large{
+    width: 100%;
+}
+.entity--mid{
+    width: 48%;
+}
+.form-box__title{
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.form-box__group__entity label{
+    font-size: .9em;
+}
+/*
+*Historial section
+*/
+.historial-box__create{
+    width: 100%;
+}
+.historial-box__create__input{
+    width: 95%;
+    height: 30px;
+}
+.historial-box__create__button{
+    width: 5%;
+    height: 46px;
+    margin-bottom: 15px;
+    border: none;
+    font-size: 1.2em;
+    color: white;
+    background-color: var(--blue-primary);
+    cursor: pointer;
+    outline: none;
+}
+/* 
+examenes List
+
+*/
+.examen-box__information__nombre{
+    color:var(--blue-primary);
+    font-size: .8em;
+}
+.request-box a i, .examen-box a i{
+    margin-right: 10px;
+}
+.request-box a, .examen-box a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--gray-font);
+}
+.button--req{
+    color: white !important;
+}
+.input--datalist{
+    width: 100%;
+}
+
+.form-box__group__entity .label-image{
+    width: 100%;
+    cursor: pointer;
+    border: 1px dotted var(--gray-font);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.form-box__group__entity .label-image i{
+    margin-right: 10px;
+}
+
+.form-box__group__entity .image-paciente {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 50vh;
+}

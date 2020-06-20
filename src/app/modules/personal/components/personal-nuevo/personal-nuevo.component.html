@@ -1,0 +1,55 @@
+<div class="fomr-box box-deployed">
+    <div class="form-box__title">
+        <span>DATOS DE PERFIL</span>
+    </div>
+    <div class="form-box__group">
+        <div class="form-box__group__all" fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Nombre del Usuario</label>
+                <input type="text" [(ngModel)]="nombreP" class="input" placeholder="Escribe el nombre del usuario">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Apellidos del Usuario</label>
+                <input type="text" [(ngModel)]="apellidosP" class="input" placeholder="Escribe el apellidos del usuario">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Fecha de nacimiento</label>
+                <input type="date" class="input"  [(ngModel)]="fechaNacimientoU" placeholder="Selecciona la fecha de nacimiento">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Telefono de contacto</label>
+                <input type="tel" class="input"  [(ngModel)]="telefono" placeholder="XXX-XXX-XXXX">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Correo Electronico</label>
+                <input type="email" class="input"  [(ngModel)]="email" placeholder="Escribe el correo electronico del usuario">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Contraseña</label>
+                <input type="password" class="input"  [(ngModel)]="password" placeholder="*********">
+            </div>
+            <div class="form-box__group__entity entity--mid" fxLayout="column">
+                <label for="">Seleccionar consultorio</label>
+                <select type="text" class="input" [(ngModel)]="consultorio">
+                    <option disabled selected>Asignar consultorio</option>
+                    <option *ngFor="let consultorio of consultorios" [ngValue]="consultorio.id_consultorio">{{consultorio.numero_consultorio}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column">
+                <label for="">Selecciona el rol</label>
+                <select type="text" class="input" [(ngModel)]="idRol">
+                    <option disabled selected>Asignar Rol</option>
+                    <option *ngFor="let rol of roles" [ngValue]="rol.idRol">{{rol.nombreRol}}</option>
+                </select>
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="column" fxLayoutAlign="center center">
+                <img class="image-paciente" *ngIf="imageProfile" [src]="imageProfile" height="90" width="90">
+                <label class="label-image" for="image-paciente-input"><i class="fas fa-upload"></i> {{textInputFile}}</label>
+                <input  hidden id="image-paciente-input" type="file" accept="image/*" (change)="pacienteImage($event)">
+            </div>
+            <div class="form-box__group__entity entity--large" fxLayout="row" fxLayoutAlign="end end">
+                <button class="button button--small button--pink" (click)="addUsuario()">AGREGAR PERFIL</button>
+            </div>
+        </div>
+    </div>
+</div>

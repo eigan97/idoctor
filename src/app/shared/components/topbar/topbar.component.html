@@ -1,0 +1,22 @@
+<div class="topbar topbar--blue" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="topbar__logo topbar__logo--case-white" fxLayout="row" fxLayoutAlign="center center">
+        <p>iDOCTOR<span>(v.0.1)</span></p>
+    </div>
+    <div class="topbar__profile" fxLayout="row">
+        <div class="topbar__profile__notifications" fxLayout="row"  fxLayout="row" fxLayoutAlign="center center">
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="topbar__profile__user" fxLayout="row" fxLayoutAlign="center center">
+            <img [src]="imgUrl" alt="">
+            <i class="fas fa-sort-down" id="arrow-item" (click)="toggleOptions($event)"></i>
+        </div>
+        
+    </div>
+    <div class="topbar__user-options" *ngIf="showOptions">
+        <ul class="topbar__user-options__list">
+            <li class="topbar__user-options__list__item" fxLayout="row" fxLayout="start center">Ayuda</li>
+            <li class="topbar__user-options__list__item" fxLayout="row" fxLayout="start center">Acerca de</li>
+            <li (click)="logOut()" class="topbar__user-options__list__item" fxLayout="row" fxLayout="start center">Cerrar Sesión</li>
+        </ul>
+    </div>
+</div>

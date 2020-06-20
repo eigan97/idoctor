@@ -1,0 +1,44 @@
+.full__container__main{
+    width: 100%;
+    height: calc(100vh - 50px);
+}
+app-sidebar{
+    width: 20%;
+}
+.full__container__main__content{
+    margin:12px;
+    width: 80%;
+    height: calc(95vh - 50px);
+}
+.full__container__main__content__title{
+    width: 100%;
+    height: 40px;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--gray-font);
+}
+.content__title__fulltext i{
+    color: var(--pink-primary);
+}
+.content__title__option{
+    width: 10%;
+}
+.content__title__option__item{
+    text-decoration: none;
+    color: var(--gray-font);
+}
+.content__title__option__item--active{
+    color: var(--pink-primary);
+    pointer-events: none;
+}
+.full__container__main__content__box{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--white-font);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+

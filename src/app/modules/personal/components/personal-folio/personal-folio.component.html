@@ -1,0 +1,53 @@
+<div class="paciente-box box-deployed">
+    <div class="paciente-box__title">
+        <span>DATOS GENERALES DEL PACIENTE</span>
+    </div>
+    <div class="paciente-box__information" fxLayout="row">  
+      <img [src]="currentPerfil.foto_usuario" alt="">
+        <div class="paciente-box__information__text" fxLayout="row" fxLayoutAlign="space-between center">
+            
+            <div class="information__text_group_one" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">NOMBRE</span>
+                    <span class="information__text_group__data">{{currentPerfil.nombre}} {{currentPerfil.apellidos}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">EDAD</span>
+                    <span class="information__text_group__data">{{aniosPerfil}} AÑOS</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_two" fxLayout="column">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">TELEFONO</span>
+                    <span class="information__text_group__data">{{currentPerfil.telefono}}</span>
+                </div>
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">Correo Electronico</span>
+                    <span class="information__text_group__data">{{currentPerfil.correo}}</span>
+                </div>
+            </div>
+
+            <div class="information__text_group_three">
+                <div class="information__text_group" fxLayout="column">
+                    <span class="information__text_group__title">Rol</span>
+                    <span class="information__text_group__data">{{currentPerfil.nombre_rol}}</span>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<div *ngIf="currentPerfil.nombre_rol === 'Doctor'" class="request-box box-deployed" fxLayout="column">
+    <div class="paciente-box__title">
+        <span>Consultorio</span>
+    </div>
+    <a *ngIf="!isConsultorio" routerLink="/personal/cita/{{currentPerfil.id_perfil}}" class="button button--req button--large button--pink" fxLayout="row" fxLayoutAlign="center center"><i class="fas fa-plus-circle"></i> ASIGNAR CONSULTORIO</a>
+    <div *ngIf="isConsultorio" class="examen-box__information" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>Consultorio: <span class="examen-box__information__nombre">{{currentPerfil.id_consultorio}}</span></span>
+        <button class="examen-box__information__status status--borrar" (click)="quitarConsultorio(currentPerfil.id_perfil, currentPerfil.id_consultorio)">
+            <span>Quitar</span>
+        </button>
+    </div>    
+</div>

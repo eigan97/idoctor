@@ -1,0 +1,67 @@
+<div class="card card--contact card--mid" fxLayout="column" *ngIf="urlState === 'pacientes'">
+    <div class="card__option" fxLayout="row" fxLayoutAlign="end end">
+        <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <div class="card__user" fxLayout="column" fxLayoutAlign="center center">
+        <img class="card__user__photo" [src]="imgUrl" alt="">
+        <div class="card__information" fxLayout="column" fxLayoutAlign="center center">
+            <div class="card__information__name" fxLayout="column" fxLayoutAlign="center center">
+                <span class="card__information__name__firstname">{{paciente.nombre_p}}</span>
+                <span class="card__information__name__lastname">{{paciente.apellidos_p}}</span>
+            </div>
+            <div class="card__information__diagnostico" fxLayout="column" fxLayoutAlign="center center">
+                <span>Diagnostico:</span>
+                <b><span class="card__information__diagnostico__text">{{paciente.diagnostico}}</span></b>
+            </div>
+            <div class="card__information__add" fxLayout="column" fxLayoutAlign="center center">
+                <span class="card__information_add_rooms">Habitacion {{paciente.habitacion.id_habitacion}}</span>
+                <a routerLink="/pacientes/{{paciente.id_paciente}}" class="button button--mid button--pink">Ver historial</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card--contact card--mid" fxLayout="column" *ngIf="urlState === 'consultas'">
+    <div class="card__option" fxLayout="row" fxLayoutAlign="end end">
+        <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <div class="card__user" fxLayout="column" fxLayoutAlign="center center">
+        <img class="card__user__photo" [src]="imgUrl" alt="">
+        <div class="card__information" fxLayout="column" fxLayoutAlign="center center">
+            <div class="card__information__name" fxLayout="column" fxLayoutAlign="center center">
+                <span class="card__information__name__firstname">{{cita.nombre_p}}</span>
+                <span class="card__information__name__lastname">{{cita.apellidos_p}}</span>
+            </div>
+            <div class="card__information__diagnostico" fxLayout="column" fxLayoutAlign="center center">
+                <span>Fecha y Hora:</span>
+                <b><span class="card__information__diagnostico__text">{{cita.fecha_cita}}</span></b>
+            </div>
+            <div class="card__information__add" fxLayout="column" fxLayoutAlign="center center">
+                <span class="card__information_add_rooms">Consultorio {{cita.consultorio}}</span>
+                <a routerLink="/consultas/{{cita.id_cita}}" class="button button--mid button--pink">Realizar Consulta</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card--contact card--mid" fxLayout="column" *ngIf="urlState === 'personal'">
+    <div class="card__option" fxLayout="row" fxLayoutAlign="end end">
+        <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <div class="card__user" fxLayout="column" fxLayoutAlign="center center">
+        <img class="card__user__photo" [src]="imgUrl" alt="">
+        <div class="card__information" fxLayout="column" fxLayoutAlign="center center">
+            <div class="card__information__name" fxLayout="column" fxLayoutAlign="center center">
+                <span class="card__information__name__firstname">{{personal.nombre}}</span>
+                <span class="card__information__name__lastname">{{personal.apellidos}}</span>
+            </div>
+            <div class="card__information__diagnostico" fxLayout="column" fxLayoutAlign="center center">
+                <span>Rol del usuario:</span>
+                <b><span class="card__information__diagnostico__text">{{personal.nombre_rol}}</span></b>
+            </div>
+            <div class="card__information__add" fxLayout="column" fxLayoutAlign="center center">
+                <a routerLink="/personal/{{personal.id_perfil}}" class="button button--mid button--pink">Ver Perfil</a>
+            </div>
+        </div>
+    </div>
+</div>
